@@ -35,6 +35,7 @@ class Config:
     # Rate limits (requests per minute per IP)
     RATE_LIMIT_READ  = "120 per minute"
     RATE_LIMIT_WRITE = "20 per minute"
+    FLASK_ENV = os.getenv("FLASK_ENV", "production")
 
     @classmethod
     def validate(cls):
