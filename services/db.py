@@ -21,6 +21,13 @@ def _ensure_indexes(db):
     col.create_index([("createdAt", DESCENDING)], background=True)
     col.create_index([("title", ASCENDING)], background=True)
 
+    visitors = db["visitors"]
+    visitors.create_index("visitorId", unique=True, background=True)
+
 
 def get_prompts_collection():
     return get_db()["prompts"]
+
+
+def get_visitors_collection():
+    return get_db()["visitors"]

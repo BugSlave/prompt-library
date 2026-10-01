@@ -13,6 +13,7 @@ import requests
 from config import Config
 from extensions import limiter
 from routes.prompt_routes import prompt_bp
+from routes.visitor_routes import visitor_bp
 from utils.responses import error
 
 def keep_alive():
@@ -40,6 +41,7 @@ def create_app():
 
     limiter.init_app(app)
     app.register_blueprint(prompt_bp)
+    app.register_blueprint(visitor_bp)
 
     @app.get("/api/health")
     def health():
